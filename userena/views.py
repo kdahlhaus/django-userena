@@ -116,7 +116,10 @@ def signup(request, signup_form=SignupForm,
     if request.method == 'POST':
         form = signup_form(request.POST, request.FILES)
         if form.is_valid():
-            user = form.save()
+            user = form.save(False, False) # don't activate user, don't send activation email
+
+            #KPD
+            request.session["new_user"]=user 
 
             # Send the signup complete signal
             userena_signals.signup_complete.send(sender=None,

@@ -1,3 +1,7 @@
+# Changes in this fork
+* views.py - signup adds new user to session as 'new_user'
+
+
 # Django Userena
 
 Userena is a Django application that supplies your Django project with full
